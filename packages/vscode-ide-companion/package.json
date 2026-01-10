@@ -33,7 +33,7 @@
     "@typescript-eslint/parser": "8.36.0",
     "esbuild": "0.25.6",
     "eslint": "9.39.2",
-    "npm-run-all2": "5.0.2",
+    "npm-run-all2": "6.2.6",
     "typescript": "5.8.3"
   },
   "dependencies": {
