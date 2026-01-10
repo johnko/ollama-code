@@ -40,7 +40,7 @@ process_pr() {
     else
       PRS_NEEDING_COMMENT="$PRS_NEEDING_COMMENT,$PR_NUMBER"
     fi
-    echo "needs_comment=true" >>$GITHUB_OUTPUT
+    echo "needs_comment=true" >>"$GITHUB_OUTPUT"
   else
     echo "🔗 Found linked issue #$ISSUE_NUMBER"
 
@@ -76,6 +76,7 @@ process_pr() {
     # Find labels to add (on issue but not on PR)
     local LABELS_TO_ADD=""
     for label in "${ISSUE_LABEL_ARRAY[@]}"; do
+      # shellcheck disable=SC2076
       if [ -n "$label" ] && [[ ! " ${PR_LABEL_ARRAY[*]} " =~ " ${label} " ]]; then
         if [ -z "$LABELS_TO_ADD" ]; then
           LABELS_TO_ADD="$label"
@@ -88,6 +89,7 @@ process_pr() {
     # Find labels to remove (on PR but not on issue)
     local LABELS_TO_REMOVE=""
     for label in "${PR_LABEL_ARRAY[@]}"; do
+      # shellcheck disable=SC2076
       if [ -n "$label" ] && [[ ! " ${ISSUE_LABEL_ARRAY[*]} " =~ " ${label} " ]]; then
         # Don't remove status/need-issue since we already handled it
         if [ "$label" != "status/need-issue" ]; then
@@ -118,7 +120,7 @@ process_pr() {
     if [ -z "$LABELS_TO_ADD" ] && [ -z "$LABELS_TO_REMOVE" ]; then
       echo "✅ Labels already synchronized"
     fi
-    echo "needs_comment=false" >>$GITHUB_OUTPUT
+    echo "needs_comment=false" >>"$GITHUB_OUTPUT"
   fi
 }
 
@@ -155,9 +157,9 @@ fi
 
 # Ensure output is always set, even if empty
 if [ -z "$PRS_NEEDING_COMMENT" ]; then
-  echo "prs_needing_comment=[]" >>$GITHUB_OUTPUT
+  echo "prs_needing_comment=[]" >>"$GITHUB_OUTPUT"
 else
-  echo "prs_needing_comment=[$PRS_NEEDING_COMMENT]" >>$GITHUB_OUTPUT
+  echo "prs_needing_comment=[$PRS_NEEDING_COMMENT]" >>"$GITHUB_OUTPUT"
 fi
 
 echo "✅ PR triage completed"

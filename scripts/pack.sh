@@ -18,4 +18,4 @@ rm packages/cli/*.tgz
 rm packages/core/*.tgz
 
 echo "Packages created successfully:"
-ls -la *.tgz
+ls -la ./*.tgz
