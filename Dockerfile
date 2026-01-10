@@ -1,4 +1,4 @@
-FROM docker.io/library/node:20-slim
+FROM docker.io/library/node:24-slim
 
 ARG SANDBOX_NAME="gemini-cli-sandbox"
 ARG CLI_VERSION_ARG
