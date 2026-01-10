@@ -32,7 +32,7 @@
     "@types/vscode": "1.107.0",
     "@typescript-eslint/eslint-plugin": "8.36.0",
     "@typescript-eslint/parser": "8.36.0",
-    "esbuild": "0.25.6",
+    "esbuild": "0.25.12",
     "eslint": "9.39.2",
     "npm-run-all2": "8.0.4",
     "patch-package": "^8.0.1",
