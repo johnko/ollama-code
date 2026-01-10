@@ -9,10 +9,7 @@ import {
   GenerateContentParameters,
   FinishReason,
   Part,
-  Content,
-  Tool,
   ToolListUnion,
-  CallableTool,
   FunctionCall,
   FunctionResponse,
 } from '@google/genai';
@@ -125,7 +122,9 @@ export class OpenAIFormatConverter {
 
           // Handle text parts
           const textParts = (content.parts || [])
+            /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
             .filter((part: any): part is { text: string } => 'text' in part)
+            /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
             .map((part: any) => part.text)
             .join('\n');
 
@@ -138,14 +137,17 @@ export class OpenAIFormatConverter {
 
           // Handle function calls and responses
           const functionCalls = (content.parts || []).filter(
+            /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
             (part: any): part is FunctionCall => 'functionCall' in part,
           );
 
           const functionResponses = (content.parts || []).filter(
+            /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
             (part: any): part is FunctionResponse => 'functionResponse' in part,
           );
 
           if (functionCalls.length > 0) {
+            /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
             const tool_calls = functionCalls.map((fc: any, index: number) => ({
               id: `call_${Date.now()}_${index}`,
               type: 'function' as const,

@@ -838,8 +838,10 @@ export const useSlashCommandProcessor = (
               const contentGenerator = geminiClient.getContentGenerator();
               if (
                 contentGenerator &&
+                /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
                 typeof (contentGenerator as any).updateModel === 'function'
               ) {
+                /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
                 (contentGenerator as any).updateModel(modelName);
                 console.log('[DEBUG] Updated OpenAI client with new model');
               }
@@ -902,8 +904,10 @@ export const useSlashCommandProcessor = (
               const contentGenerator = geminiClient.getContentGenerator();
               if (
                 contentGenerator &&
+                /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
                 typeof (contentGenerator as any).updateClient === 'function'
               ) {
+                /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
                 (contentGenerator as any).updateClient();
                 console.log(
                   '[DEBUG] Updated OpenAI client with new provider URL',
@@ -1132,6 +1136,7 @@ export const useSlashCommandProcessor = (
     setPendingCompressionItem,
     clearItems,
     refreshStatic,
+    settings.user,
   ]);
 
   const handleSlashCommand = useCallback(
