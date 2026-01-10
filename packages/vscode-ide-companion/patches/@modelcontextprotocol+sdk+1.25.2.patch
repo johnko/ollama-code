@@ -1,0 +1,10 @@
+diff --git a/node_modules/@modelcontextprotocol/sdk/dist/cjs/validation/types.d.ts b/node_modules/@modelcontextprotocol/sdk/dist/cjs/validation/types.d.ts
+index 9fa9222..25097bd 100644
+--- a/node_modules/@modelcontextprotocol/sdk/dist/cjs/validation/types.d.ts
++++ b/node_modules/@modelcontextprotocol/sdk/dist/cjs/validation/types.d.ts
+@@ -1,4 +1,4 @@
+-import type { JSONSchema } from 'json-schema-typed';
++import type { JSONSchema } from 'json-schema-typed' with { "resolution-mode": "import" };
+ /**
+  * JSON Schema type definition (JSON Schema Draft 2020-12)
+  *
