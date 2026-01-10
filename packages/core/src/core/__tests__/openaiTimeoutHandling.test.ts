@@ -231,8 +231,8 @@ describe('OpenAIContentGenerator Timeout Handling', () => {
 
       // Verify OpenAI client was created with timeout config
       expect(OpenAI).toHaveBeenCalledWith({
-        apiKey: 'test-key',
-        baseURL: '',
+        apiKey: 'test-api-key',
+        baseURL: 'http://localhost:11434/v1',
         timeout: 120000,
         maxRetries: 3,
       });
@@ -250,7 +250,7 @@ describe('OpenAIContentGenerator Timeout Handling', () => {
 
       expect(OpenAI).toHaveBeenCalledWith({
         apiKey: 'test-key',
-        baseURL: '',
+        baseURL: 'http://localhost:11434/v1',
         timeout: 300000,
         maxRetries: 5,
       });
@@ -265,7 +265,7 @@ describe('OpenAIContentGenerator Timeout Handling', () => {
 
       expect(OpenAI).toHaveBeenCalledWith({
         apiKey: 'test-key',
-        baseURL: '',
+        baseURL: 'http://localhost:11434/v1',
         timeout: 120000, // default
         maxRetries: 3, // default
       });
