@@ -168,9 +168,8 @@ export async function createContentGenerator(
     }
 
     // Import OpenAIContentGenerator dynamically to avoid circular dependencies
-    const { OpenAIContentGenerator } = await import(
-      './openaiContentGenerator.js'
-    );
+    const { OpenAIContentGenerator } =
+      await import('./openaiContentGenerator.js');
 
     // Always use OpenAIContentGenerator, logging is controlled by enableOpenAILogging flag
     return new OpenAIContentGenerator(config.apiKey, config.model, gcConfig);
