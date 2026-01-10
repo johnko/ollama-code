@@ -2,11 +2,6 @@
 
 name: E2E Tests
 
-on:
-  push:
-    branches: [main]
-  merge_group:
-
 jobs:
   e2e-test:
     name: E2E Test - ${{ matrix.sandbox }}

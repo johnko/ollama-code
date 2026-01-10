@@ -1,9 +1,5 @@
 name: Gemini Automated Issue Triage
 
-on:
-  issues:
-    types: [opened, reopened]
-
 jobs:
   triage-issue:
     timeout-minutes: 5
