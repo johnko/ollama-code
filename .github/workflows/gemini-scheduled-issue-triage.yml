@@ -41,7 +41,7 @@ jobs:
 
       - name: Run Gemini Issue Triage
         if: steps.find_issues.outputs.issues_to_triage != '[]'
-        uses: google-github-actions/run-gemini-cli@v0.1.18
+        uses: google-github-actions/run-gemini-cli@ba709f0578653f8a65869f9b862bd47455cd96d2 # v0.1.18
         env:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
           ISSUES_TO_TRIAGE: ${{ steps.find_issues.outputs.issues_to_triage }}
