@@ -31,6 +31,7 @@ export default tseslint.config(
       'node_modules/*',
       'eslint.config.js',
       'packages/cli/dist/**',
+      'packages/cli/src/generated/git-commit.ts',
       'packages/core/dist/**',
       'packages/server/dist/**',
       'packages/vscode-ide-companion/dist/**',

@@ -143,14 +143,14 @@ export class OpenAIContentGenerator implements ContentGenerator {
   /**
    * Reinitialize the OpenAI client with current environment variables
    */
-  public updateClient(): void {
+  updateClient(): void {
     this.initializeClient();
   }
 
   /**
    * Update the model being used
    */
-  public updateModel(model: string): void {
+  updateModel(model: string): void {
     this.model = model;
     console.log('[DEBUG] Updated model to:', this.model);
   }

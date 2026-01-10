@@ -319,7 +319,7 @@ export function loadOllamaConfig(): OllamaConfig {
 
       return config;
     }
-  } catch (error) {
+  } catch (_error) {
     // Silently ignore config loading errors - fall back to env vars or defaults
   }
   return {};
