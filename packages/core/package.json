@@ -42,7 +42,7 @@
     "open": "^11.0.0",
     "openai": "^5.7.0",
     "shell-quote": "^1.8.3",
-    "simple-git": "^3.28.0",
+    "simple-git": "^3.30.0",
     "strip-ansi": "^7.1.2",
     "undici": "^7.10.0",
     "ws": "^8.18.3"
