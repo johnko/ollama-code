@@ -67,7 +67,7 @@
     "@types/shell-quote": "1.7.5",
     "@types/yargs": "17.0.35",
     "ink-testing-library": "4.0.0",
-    "jsdom": "26.1.0",
+    "jsdom": "27.4.0",
     "pretty-format": "30.2.0",
     "react-dom": "19.2.3",
     "typescript": "5.9.3",
