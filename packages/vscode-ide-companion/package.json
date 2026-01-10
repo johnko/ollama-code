@@ -21,6 +21,7 @@
     "watch:esbuild": "node esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
     "package": "npm run check-types && npm run lint && node esbuild.js --production",
+    "postinstall": "patch-package",
     "check-types": "tsc --noEmit",
     "lint": "eslint src"
   },
@@ -31,15 +32,16 @@
     "@types/vscode": "1.107.0",
     "@typescript-eslint/eslint-plugin": "8.36.0",
     "@typescript-eslint/parser": "8.36.0",
-    "esbuild": "0.25.6",
+    "esbuild": "0.25.12",
     "eslint": "9.39.2",
     "npm-run-all2": "8.0.4",
+    "patch-package": "^8.0.1",
     "typescript": "5.8.3"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.15.1",
+    "@modelcontextprotocol/sdk": "^1.25.1",
     "cors": "^2.8.5",
-    "express": "^5.1.0",
+    "express": "^5.2.1",
     "zod": "^4.0.0"
   }
 }
