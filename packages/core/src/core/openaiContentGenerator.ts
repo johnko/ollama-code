@@ -101,8 +101,11 @@ export class OpenAIContentGenerator implements ContentGenerator {
   }
 
   private initializeClient(): void {
-    const baseURL = process.env.OLLAMA_BASE_URL || process.env.OPENAI_BASE_URL || 'http://localhost:11434/v1';
-    
+    const baseURL =
+      process.env.OLLAMA_BASE_URL ||
+      process.env.OPENAI_BASE_URL ||
+      'http://localhost:11434/v1';
+
     // Debug logging
     console.log('[DEBUG] OpenAI Content Generator initialized with:');
     console.log('[DEBUG] - baseURL:', baseURL);
@@ -251,8 +254,14 @@ export class OpenAIContentGenerator implements ContentGenerator {
       // Debug logging for connection errors
       console.log('[DEBUG] OpenAI API call failed:');
       console.log('[DEBUG] - Error type:', error?.constructor?.name);
-      console.log('[DEBUG] - Error message:', error instanceof Error ? error.message : String(error));
-      console.log('[DEBUG] - Error stack:', error instanceof Error ? error.stack : 'No stack');
+      console.log(
+        '[DEBUG] - Error message:',
+        error instanceof Error ? error.message : String(error),
+      );
+      console.log(
+        '[DEBUG] - Error stack:',
+        error instanceof Error ? error.stack : 'No stack',
+      );
       console.log('[DEBUG] - Duration:', durationMs + 'ms');
 
       // Identify timeout errors specifically
@@ -350,7 +359,6 @@ export class OpenAIContentGenerator implements ContentGenerator {
           request.config.tools,
         );
       }
-
 
       const stream = (await this.client.chat.completions.create(
         createParams,

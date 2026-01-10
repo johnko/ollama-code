@@ -6,11 +6,7 @@
 
 import { GaxiosError } from 'gaxios';
 import { useState, useEffect, useCallback } from 'react';
-import {
-  Config,
-  CodeAssistServer,
-  UserTierId,
-} from '@tcsenpai/ollama-code';
+import { Config, CodeAssistServer, UserTierId } from '@tcsenpai/ollama-code';
 
 export interface PrivacyState {
   isLoading: boolean;

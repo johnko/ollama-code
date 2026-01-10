@@ -109,13 +109,20 @@ export class OpenAIFormatConverter {
     const messages: OpenAIMessage[] = [];
 
     // Convert Gemini contents to OpenAI messages
-    const contents = Array.isArray(request.contents) ? request.contents : [request.contents];
+    const contents = Array.isArray(request.contents)
+      ? request.contents
+      : [request.contents];
     for (const content of contents) {
       // Type guard to ensure content has the expected properties
-      if (typeof content === 'object' && content !== null && 'role' in content && 'parts' in content) {
+      if (
+        typeof content === 'object' &&
+        content !== null &&
+        'role' in content &&
+        'parts' in content
+      ) {
         if (content.role === 'user' || content.role === 'model') {
           const role = content.role === 'model' ? 'assistant' : content.role;
-        
+
           // Handle text parts
           const textParts = (content.parts || [])
             .filter((part: any): part is { text: string } => 'text' in part)
@@ -131,11 +138,11 @@ export class OpenAIFormatConverter {
 
           // Handle function calls and responses
           const functionCalls = (content.parts || []).filter(
-            (part: any): part is FunctionCall => 'functionCall' in part
+            (part: any): part is FunctionCall => 'functionCall' in part,
           );
 
           const functionResponses = (content.parts || []).filter(
-            (part: any): part is FunctionResponse => 'functionResponse' in part
+            (part: any): part is FunctionResponse => 'functionResponse' in part,
           );
 
           if (functionCalls.length > 0) {
@@ -190,7 +197,9 @@ export class OpenAIFormatConverter {
   /**
    * Convert OpenAI response to Gemini format
    */
-  static convertToGeminiFormat(completion: ChatCompletion): GenerateContentResponse {
+  static convertToGeminiFormat(
+    completion: ChatCompletion,
+  ): GenerateContentResponse {
     const choice = completion.choices[0];
     if (!choice) {
       throw new Error('No choices in OpenAI response');
@@ -333,10 +342,10 @@ export class OpenAIFormatConverter {
         }
       } else if (message.role === 'assistant' && message.tool_calls) {
         // Filter out tool calls that don't have responses
-        const validToolCalls = message.tool_calls.filter(toolCall =>
+        const validToolCalls = message.tool_calls.filter((toolCall) =>
           messages.some(
-            m => m.role === 'tool' && m.tool_call_id === toolCall.id
-          )
+            (m) => m.role === 'tool' && m.tool_call_id === toolCall.id,
+          ),
         );
 
         cleanedMessages.push({
@@ -354,7 +363,9 @@ export class OpenAIFormatConverter {
   /**
    * Merge consecutive assistant messages
    */
-  static mergeConsecutiveAssistantMessages(messages: OpenAIMessage[]): OpenAIMessage[] {
+  static mergeConsecutiveAssistantMessages(
+    messages: OpenAIMessage[],
+  ): OpenAIMessage[] {
     const mergedMessages: OpenAIMessage[] = [];
     let currentAssistantMessage: OpenAIMessage | null = null;
 

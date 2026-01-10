@@ -61,10 +61,12 @@ class ThemeManager {
   getAvailableThemes(): ThemeDisplay[] {
     // Separate Ollama themes
     const ollamaThemes = this.availableThemes.filter(
-      (theme) => theme.name === OllamaLight.name || theme.name === OllamaDark.name,
+      (theme) =>
+        theme.name === OllamaLight.name || theme.name === OllamaDark.name,
     );
     const otherThemes = this.availableThemes.filter(
-      (theme) => theme.name !== OllamaLight.name && theme.name !== OllamaDark.name,
+      (theme) =>
+        theme.name !== OllamaLight.name && theme.name !== OllamaDark.name,
     );
 
     // Sort other themes by type and then name

@@ -20,7 +20,7 @@ on:
         required: false
         type: string
       overrideSchedule:
-        default: "false"
+        default: 'false'
         description: Override all schedules
         required: false
         type: string

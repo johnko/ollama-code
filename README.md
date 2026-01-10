@@ -61,11 +61,13 @@ npm install -g .
 ### Ollama Server Setup
 
 1. **Install Ollama** (if not already installed):
+
    ```bash
    curl -fsSL https://ollama.com/install.sh | sh
    ```
 
 2. **Download a coding model**:
+
    ```bash
    ollama pull qwen2.5-coder:14b  # Recommended for code tasks
    # or
@@ -151,12 +153,12 @@ ollama-code
 
 For optimal results with coding tasks:
 
-| Model | Size | Best For | Quality | Speed |
-|-------|------|----------|---------|-------|
-| `qwen2.5-coder:14b` | 14B | Code generation, refactoring | ⭐⭐⭐⭐ | ⭐⭐⭐ |
-| `codellama:13b` | 13B | Code completion, debugging | ⭐⭐⭐ | ⭐⭐⭐ |
-| `llama3.1:8b` | 8B | General coding, faster responses | ⭐⭐ | ⭐⭐⭐⭐ |
-| `qwen2.5-coder:32b` | 32B | Complex reasoning, best quality | ⭐⭐⭐⭐⭐ | ⭐⭐ |
+| Model               | Size | Best For                         | Quality    | Speed    |
+| ------------------- | ---- | -------------------------------- | ---------- | -------- |
+| `qwen2.5-coder:14b` | 14B  | Code generation, refactoring     | ⭐⭐⭐⭐   | ⭐⭐⭐   |
+| `codellama:13b`     | 13B  | Code completion, debugging       | ⭐⭐⭐     | ⭐⭐⭐   |
+| `llama3.1:8b`       | 8B   | General coding, faster responses | ⭐⭐       | ⭐⭐⭐⭐ |
+| `qwen2.5-coder:32b` | 32B  | Complex reasoning, best quality  | ⭐⭐⭐⭐⭐ | ⭐⭐     |
 
 ## Project Structure
 
@@ -184,6 +186,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) to learn how to contribute to the proje
 If you encounter issues, check the [troubleshooting guide](docs/troubleshooting.md).
 
 Common issues:
+
 - **Connection refused**: Ensure Ollama is running (`ollama serve`)
 - **Model not found**: Pull the model first (`ollama pull model-name`)
 - **Slow responses**: Consider using smaller models or upgrading hardware

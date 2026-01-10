@@ -17,19 +17,24 @@ This plan outlines the transformation of Qwen Code into Ollama Code, maintaining
 ### Phase 1: Core Configuration Changes
 
 #### 1.1 Default Model & API Configuration
+
 **Files to modify:**
+
 - `packages/core/src/config/models.ts`
 - `packages/core/src/core/contentGenerator.ts`
 - `packages/core/src/core/openaiContentGenerator.ts`
 
 **Changes:**
+
 - Update `DEFAULT_GEMINI_MODEL` to `qwen3:14b`
 - Set default `OPENAI_BASE_URL` to `https://ollama.tcsenpai.com`
 - Ensure OpenAI auth type is the primary method
 - Remove Gemini-specific model fallbacks
 
 #### 1.2 Environment Variable Defaults
+
 **New environment variables:**
+
 ```bash
 OLLAMA_API_BASE_URL=https://ollama.tcsenpai.com
 OLLAMA_MODEL=qwen3:14b
@@ -37,26 +42,32 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 ```
 
 **Backward compatibility:**
+
 - Still support `OPENAI_BASE_URL` and `OPENAI_MODEL`
 - Ollama variables take precedence when present
 
 ### Phase 2: Package Rebranding
 
 #### 2.1 Package Metadata Updates
+
 **Files to modify:**
+
 - Root `package.json`
 - `packages/cli/package.json`
 - `packages/core/package.json`
 - `packages/vscode-ide-companion/package.json`
 
 **Changes:**
+
 - Package name: `@qwen-code/qwen-code` → `@ollama-code/ollama-code`
 - Binary name: `qwen` → `ollama`
 - Repository URLs and metadata
 - Description and keywords
 
 #### 2.2 Build Configuration Updates
+
 **Files to modify:**
+
 - `esbuild.config.js`
 - `scripts/build.js`
 - `scripts/prepare-package.js`
@@ -65,19 +76,24 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 ### Phase 3: Code Rebranding
 
 #### 3.1 Variable and Function Names
+
 **Systematic replacements:**
+
 - `gemini` → `ollama` (lowercase)
 - `Gemini` → `Ollama` (capitalized)
 - `GEMINI` → `OLLAMA` (uppercase)
 
 **Key areas:**
+
 - Class names: `GeminiClient` → `OllamaClient`
 - File names: `gemini*.ts` → `ollama*.ts`
 - Configuration directories: `.gemini/` → `.ollama/`
 - Memory files: `GEMINI.md` → `OLLAMA.md`
 
 #### 3.2 User-Facing Text Updates
+
 **Files to modify:**
+
 - All UI components in `packages/cli/src/ui/`
 - Help text and error messages
 - CLI command descriptions
@@ -86,20 +102,26 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 ### Phase 4: Documentation & Assets
 
 #### 4.1 Documentation Updates
+
 **Files to modify:**
+
 - `README.md` - Complete rewrite for Ollama focus
 - `docs/` directory - Update all documentation
 - `CONTRIBUTING.md` - Update contribution guidelines
 - Code comments and JSDoc
 
 #### 4.2 Visual Assets
+
 **Files to replace:**
+
 - `docs/assets/qwen-screenshot.png` → `docs/assets/ollama-screenshot.png`
 - Remove Qwen-specific branding images
 - Update terminal themes if needed
 
 #### 4.3 New Ollama-Specific Documentation
+
 **New files to create:**
+
 - `docs/ollama-setup.md` - Ollama server setup guide
 - `docs/model-configuration.md` - Model selection and configuration
 - `examples/ollama-workflows/` - Ollama-specific examples
@@ -107,7 +129,9 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 ### Phase 5: Configuration System Enhancement
 
 #### 5.1 Config File Support
+
 **New configuration files:**
+
 ```
 .ollama/
 ├── config.json          # Main configuration
@@ -116,6 +140,7 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 ```
 
 **Configuration schema:**
+
 ```json
 {
   "api": {
@@ -140,7 +165,9 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 ```
 
 #### 5.2 Environment Variable Priority
+
 **Priority order:**
+
 1. Command line arguments
 2. `OLLAMA_*` environment variables
 3. `OPENAI_*` environment variables (for compatibility)
@@ -150,12 +177,15 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 ### Phase 6: Testing & Quality Assurance
 
 #### 6.1 Test Updates
+
 **Files to modify:**
+
 - All test files with Gemini/Qwen references
 - Mock configurations for Ollama
 - Integration tests for Ollama API compatibility
 
 #### 6.2 New Test Coverage
+
 - Ollama API integration tests
 - Configuration system tests
 - Multiple server support tests
@@ -164,12 +194,15 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 ### Phase 7: Build & Distribution
 
 #### 7.1 Build System Updates
+
 **Scripts to modify:**
+
 - `scripts/build.js` - Update build output paths
 - `scripts/start.js` - Update development startup
 - CI/CD workflows - Update for new package name
 
 #### 7.2 Distribution Preparation
+
 - Update npm publishing configuration
 - Prepare Docker images if needed
 - Update installation instructions
@@ -179,16 +212,18 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 ### From Qwen Code to Ollama Code
 
 1. **Installation:**
+
    ```bash
    npm uninstall -g @qwen-code/qwen-code
    npm install -g @ollama-code/ollama-code
    ```
 
 2. **Command Change:**
+
    ```bash
    # Old
    qwen
-   
+
    # New
    ollama
    ```
@@ -200,21 +235,25 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 ## Technical Considerations
 
 ### API Compatibility
+
 - Ollama's OpenAI-compatible API should work seamlessly with existing `OpenAIContentGenerator`
 - May need minor adjustments for Ollama-specific features or limitations
 - Test thoroughly with streaming responses and tool calls
 
 ### Memory Management
+
 - Update memory file references from `GEMINI.md` to `OLLAMA.md`
 - Ensure memory discovery and import systems work with new paths
 - Migrate existing memory files during upgrade
 
 ### Tool Integration
+
 - All existing tools should work without modification
 - MCP (Model Context Protocol) integration remains unchanged
 - Shell commands and file operations remain identical
 
 ### Performance Considerations
+
 - Ollama may have different token limits or performance characteristics
 - Monitor and adjust timeout configurations as needed
 - Consider caching strategies for model loading
@@ -258,4 +297,4 @@ OLLAMA_API_KEY=ollama  # Default for local/basic setups
 
 ---
 
-*This plan ensures a complete transformation while maintaining the excellent user experience that makes this tool valuable.*
+_This plan ensures a complete transformation while maintaining the excellent user experience that makes this tool valuable._

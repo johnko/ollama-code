@@ -42,7 +42,7 @@ export const validateAuthMethod = (authMethod: string): string | null => {
     // Check for Ollama or OpenAI API key, allowing empty key for Ollama local setups
     const hasOllamaKey = process.env.OLLAMA_API_KEY !== undefined;
     const hasOpenAIKey = process.env.OPENAI_API_KEY !== undefined;
-    
+
     if (!hasOllamaKey && !hasOpenAIKey) {
       return 'OPENAI_API_KEY or OLLAMA_API_KEY environment variable not found. You can enter it interactively or add it to your .env file.';
     }

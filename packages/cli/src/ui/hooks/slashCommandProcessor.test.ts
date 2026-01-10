@@ -89,8 +89,7 @@ vi.mock('open', () => ({
 }));
 
 vi.mock('@tcsenpai/ollama-code', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@tcsenpai/ollama-code')>();
+  const actual = await importOriginal<typeof import('@tcsenpai/ollama-code')>();
   return {
     ...actual,
     getMCPServerStatus: vi.fn(),

@@ -14,7 +14,7 @@
  * Optimized system prompt for smaller Ollama models
  * Key optimizations:
  * - More structured format with clear sections
- * - Explicit step-by-step instructions  
+ * - Explicit step-by-step instructions
  * - Reduced complexity and length
  * - Better formatting for model comprehension
  */
@@ -110,7 +110,7 @@ export const OLLAMA_MODEL_CONFIGS = {
     contextWindow: 32768,
   },
   'qwen3:32b': {
-    maxTokens: 12288, 
+    maxTokens: 12288,
     temperature: 0.15,
     topP: 0.9,
     repeatPenalty: 1.1,
@@ -149,7 +149,7 @@ export function getOllamaModelConfig(model: string) {
   if (model.includes('llama3.3') && model.includes('70b')) {
     return OLLAMA_MODEL_CONFIGS['llama3.3:70b'];
   }
-  
+
   // Default fallback for unknown models
   return {
     maxTokens: 8192,

@@ -151,14 +151,19 @@ export class LoadedSettings {
       ...this.workspace.settings,
       ...this.system.settings,
     };
-    
+
     // Auto-detect auth type if not explicitly set
     if (!merged.selectedAuthType) {
-      if (process.env.OLLAMA_API_KEY !== undefined || process.env.OLLAMA_BASE_URL || process.env.OPENAI_API_KEY || process.env.OPENAI_BASE_URL) {
+      if (
+        process.env.OLLAMA_API_KEY !== undefined ||
+        process.env.OLLAMA_BASE_URL ||
+        process.env.OPENAI_API_KEY ||
+        process.env.OPENAI_BASE_URL
+      ) {
         merged.selectedAuthType = AuthType.USE_OPENAI;
       }
     }
-    
+
     return merged;
   }
 
@@ -285,19 +290,33 @@ export function loadOllamaConfig(): OllamaConfig {
   try {
     if (fs.existsSync(OLLAMA_CONFIG_PATH)) {
       const configContent = fs.readFileSync(OLLAMA_CONFIG_PATH, 'utf8');
-      const config = JSON.parse(stripJsonComments(configContent)) as OllamaConfig;
-      
+      const config = JSON.parse(
+        stripJsonComments(configContent),
+      ) as OllamaConfig;
+
       // Set environment variables from config if not already set
-      if (config.baseUrl && !process.env.OLLAMA_BASE_URL && !process.env.OPENAI_BASE_URL) {
+      if (
+        config.baseUrl &&
+        !process.env.OLLAMA_BASE_URL &&
+        !process.env.OPENAI_BASE_URL
+      ) {
         process.env.OLLAMA_BASE_URL = config.baseUrl;
       }
-      if (config.model && !process.env.OLLAMA_MODEL && !process.env.OPENAI_MODEL) {
+      if (
+        config.model &&
+        !process.env.OLLAMA_MODEL &&
+        !process.env.OPENAI_MODEL
+      ) {
         process.env.OLLAMA_MODEL = config.model;
       }
-      if (config.apiKey && !process.env.OLLAMA_API_KEY && !process.env.OPENAI_API_KEY) {
+      if (
+        config.apiKey &&
+        !process.env.OLLAMA_API_KEY &&
+        !process.env.OPENAI_API_KEY
+      ) {
         process.env.OLLAMA_API_KEY = config.apiKey;
       }
-      
+
       return config;
     }
   } catch (error) {
@@ -316,7 +335,7 @@ export function loadEnvironment(): void {
   if (envFilePath) {
     dotenv.config({ path: envFilePath, quiet: true });
   }
-  
+
   // Load Ollama config after environment variables
   loadOllamaConfig();
 }
@@ -362,10 +381,14 @@ export function loadSettings(workspaceDir: string): LoadedSettings {
       } else if (userSettings.theme && userSettings.theme === 'VS2015') {
         userSettings.theme = DefaultDark.name;
       }
-      
+
       // Apply Ollama settings to environment if not already set
       if (userSettings.ollama) {
-        if (userSettings.ollama.baseUrl && !process.env.OLLAMA_BASE_URL && !process.env.OPENAI_BASE_URL) {
+        if (
+          userSettings.ollama.baseUrl &&
+          !process.env.OLLAMA_BASE_URL &&
+          !process.env.OPENAI_BASE_URL
+        ) {
           process.env.OLLAMA_BASE_URL = userSettings.ollama.baseUrl;
           process.env.OPENAI_BASE_URL = userSettings.ollama.baseUrl;
         }
