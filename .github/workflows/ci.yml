@@ -90,15 +90,6 @@ jobs:
       - name: Run tests and generate reports
         run: NO_COLOR=true npm run test:ci
 
-      - name: Publish Test Report (for non-forks)
-        if: always() && (github.event.pull_request.head.repo.full_name == github.repository)
-        uses: dorny/test-reporter@890a17cecf52a379fc869ab770a71657660be727 # v2
-        with:
-          name: Test Results (Node ${{ matrix.node-version }})
-          path: packages/*/junit.xml
-          reporter: java-junit
-          fail-on-error: 'false'
-
       - name: Upload Test Results Artifact (for forks)
         if: always() && (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository)
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
