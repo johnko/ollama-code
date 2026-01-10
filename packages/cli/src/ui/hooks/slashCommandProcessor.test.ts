@@ -65,7 +65,7 @@ import {
   getMCPDiscoveryState,
   getMCPServerStatus,
   GeminiClient,
-} from '@tcsenpai/ollama-code';
+} from '@johnko/ollama-code';
 import { useSessionStats } from '../contexts/SessionContext.js';
 import { LoadedSettings } from '../../config/settings.js';
 import * as ShowMemoryCommandModule from './useShowMemoryCommand.js';
@@ -88,8 +88,8 @@ vi.mock('open', () => ({
   default: vi.fn(),
 }));
 
-vi.mock('@tcsenpai/ollama-code', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@tcsenpai/ollama-code')>();
+vi.mock('@johnko/ollama-code', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@johnko/ollama-code')>();
   return {
     ...actual,
     getMCPServerStatus: vi.fn(),

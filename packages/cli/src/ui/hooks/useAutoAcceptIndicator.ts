@@ -6,7 +6,7 @@
 
 import { useState, useEffect } from 'react';
 import { useInput } from 'ink';
-import { ApprovalMode, type Config } from '@tcsenpai/ollama-code';
+import { ApprovalMode, type Config } from '@johnko/ollama-code';
 
 export interface UseAutoAcceptIndicatorArgs {
   config: Config;

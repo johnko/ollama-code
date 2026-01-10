@@ -1,5 +1,5 @@
 {
-  "name": "@tcsenpai/ollama-code",
+  "name": "@johnko/ollama-code",
   "version": "0.0.3",
   "engines": {
     "node": ">=20"

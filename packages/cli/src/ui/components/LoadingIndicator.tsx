@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { ThoughtSummary } from '@tcsenpai/ollama-code';
+import { ThoughtSummary } from '@johnko/ollama-code';
 import React from 'react';
 import { Box, Text } from 'ink';
 import { Colors } from '../colors.js';

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Config, GitService, Logger } from '@tcsenpai/ollama-code';
+import { Config, GitService, Logger } from '@johnko/ollama-code';
 import { LoadedSettings } from '../../config/settings.js';
 import { UseHistoryManagerReturn } from '../hooks/useHistoryManager.js';
 import { SessionStatsState } from '../contexts/SessionContext.js';

@@ -10,7 +10,7 @@ import { IndividualToolCallDisplay, ToolCallStatus } from '../../types.js';
 import { ToolMessage } from './ToolMessage.js';
 import { ToolConfirmationMessage } from './ToolConfirmationMessage.js';
 import { Colors } from '../../colors.js';
-import { Config } from '@tcsenpai/ollama-code';
+import { Config } from '@johnko/ollama-code';
 
 interface ToolGroupMessageProps {
   groupId: number;

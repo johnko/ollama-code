@@ -18,7 +18,7 @@ import {
   FileDiscoveryService,
   TelemetryTarget,
   MCPServerConfig,
-} from '@tcsenpai/ollama-code';
+} from '@johnko/ollama-code';
 import { Settings } from './settings.js';
 
 import { Extension, filterActiveExtensions } from './extension.js';

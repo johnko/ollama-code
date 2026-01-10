@@ -7,7 +7,7 @@
 import { act, renderHook } from '@testing-library/react';
 import { vi } from 'vitest';
 import { useShellCommandProcessor } from './shellCommandProcessor';
-import { Config, GeminiClient } from '@tcsenpai/ollama-code';
+import { Config, GeminiClient } from '@johnko/ollama-code';
 import * as fs from 'fs';
 import EventEmitter from 'events';
 
@@ -22,7 +22,7 @@ vi.mock('os', () => ({
   platform: () => 'linux',
   tmpdir: () => '/tmp',
 }));
-vi.mock('@tcsenpai/ollama-code');
+vi.mock('@johnko/ollama-code');
 vi.mock('../utils/textUtils.js', () => ({
   isBinary: vi.fn(),
 }));

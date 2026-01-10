@@ -8,7 +8,7 @@ import {
   allowEditorTypeInSandbox,
   checkHasEditorType,
   type EditorType,
-} from '@tcsenpai/ollama-code';
+} from '@johnko/ollama-code';
 
 export interface EditorDisplay {
   name: string;

@@ -21,7 +21,7 @@ import {
   ToolCall,
   Status as CoreStatus,
   EditorType,
-} from '@tcsenpai/ollama-code';
+} from '@johnko/ollama-code';
 import { useCallback, useState, useMemo } from 'react';
 import {
   HistoryItemToolGroup,

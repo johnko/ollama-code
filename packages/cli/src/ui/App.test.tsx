@@ -15,7 +15,7 @@ import {
   AccessibilitySettings,
   SandboxConfig,
   GeminiClient,
-} from '@tcsenpai/ollama-code';
+} from '@johnko/ollama-code';
 import { LoadedSettings, SettingsFile, Settings } from '../config/settings.js';
 import process from 'node:process';
 import { useGeminiStream } from './hooks/useGeminiStream.js';
@@ -74,10 +74,10 @@ interface MockServerConfig {
   getUserTier: Mock<() => Promise<string | undefined>>;
 }
 
-// Mock @tcsenpai/ollama-code and its Config class
-vi.mock('@tcsenpai/ollama-code', async (importOriginal) => {
+// Mock @johnko/ollama-code and its Config class
+vi.mock('@johnko/ollama-code', async (importOriginal) => {
   const actualCore =
-    await importOriginal<typeof import('@tcsenpai/ollama-code')>();
+    await importOriginal<typeof import('@johnko/ollama-code')>();
   const ConfigClassMock = vi
     .fn()
     .mockImplementation((optionsPassedToConstructor) => {

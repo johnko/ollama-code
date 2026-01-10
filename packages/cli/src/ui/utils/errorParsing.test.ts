@@ -11,7 +11,7 @@ import {
   UserTierId,
   DEFAULT_GEMINI_FLASH_MODEL,
   isProQuotaExceededError,
-} from '@tcsenpai/ollama-code';
+} from '@johnko/ollama-code';
 
 describe('parseAndFormatApiError', () => {
   const _enterpriseMessage =
@@ -39,7 +39,7 @@ describe('parseAndFormatApiError', () => {
     );
     expect(result).toContain('[API Error: Rate limit exceeded');
     expect(result).toContain(
-      'Possible quota limitations in place or slow response times detected. Switching to the gemini-2.5-flash model',
+      '[API Error: Rate limit exceeded (Status: RESOURCE_EXHAUSTED)]\nPossible quota limitations in place or slow response times detected. Switching to the qwen3:14b model for the rest of this session.',
     );
   });
 
@@ -55,7 +55,7 @@ describe('parseAndFormatApiError', () => {
     );
     expect(result).toContain('[API Error: Rate limit exceeded');
     expect(result).toContain(
-      'Possible quota limitations in place or slow response times detected. Switching to the gemini-2.5-flash model',
+      '[API Error: Rate limit exceeded (Status: RESOURCE_EXHAUSTED)]\nPossible quota limitations in place or slow response times detected. Switching to the qwen3:14b model for the rest of this session.',
     );
   });
 
@@ -169,7 +169,7 @@ describe('parseAndFormatApiError', () => {
     );
     expect(result).toContain('[API Error: Rate limit exceeded');
     expect(result).toContain(
-      'Possible quota limitations in place or slow response times detected. Switching to the gemini-2.5-flash model',
+      '[API Error: Rate limit exceeded (Status: RESOURCE_EXHAUSTED)]\nPossible quota limitations in place or slow response times detected. Switching to the qwen3:14b model for the rest of this session.',
     );
     expect(result).not.toContain(
       'You have reached your daily gemini-2.5-pro quota limit',

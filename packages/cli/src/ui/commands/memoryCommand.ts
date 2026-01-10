@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { getErrorMessage } from '@tcsenpai/ollama-code';
+import { getErrorMessage } from '@johnko/ollama-code';
 import { MessageType } from '../types.js';
 import { SlashCommand, SlashCommandActionReturn } from './types.js';
 

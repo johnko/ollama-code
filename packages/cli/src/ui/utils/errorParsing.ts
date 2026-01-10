@@ -13,7 +13,7 @@ import {
   isGenericQuotaExceededError,
   isApiError,
   isStructuredError,
-} from '@tcsenpai/ollama-code';
+} from '@johnko/ollama-code';
 // Free Tier message functions
 const getRateLimitErrorMessageGoogleFree = (
   fallbackModel: string = DEFAULT_GEMINI_FLASH_MODEL,

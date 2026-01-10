@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { AuthType } from '@tcsenpai/ollama-code';
+import { AuthType } from '@johnko/ollama-code';
 import { vi } from 'vitest';
 import { validateAuthMethod } from './auth.js';
 

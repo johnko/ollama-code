@@ -15,7 +15,7 @@ import {
   SETTINGS_DIRECTORY_NAME,
 } from '../config/settings.js';
 import { promisify } from 'util';
-import { SandboxConfig } from '@tcsenpai/ollama-code';
+import { SandboxConfig } from '@johnko/ollama-code';
 
 const execAsync = promisify(exec);
 

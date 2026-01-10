@@ -18,7 +18,7 @@ import {
   MCPServerStatus,
   getMCPDiscoveryState,
   getMCPServerStatus,
-} from '@tcsenpai/ollama-code';
+} from '@johnko/ollama-code';
 import { setOllamaBaseUrl, setOllamaModel } from '../../config/auth.js';
 import { useSessionStats } from '../contexts/SessionContext.js';
 import {

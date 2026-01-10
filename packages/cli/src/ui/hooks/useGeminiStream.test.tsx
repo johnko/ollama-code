@@ -16,7 +16,7 @@ import {
   TrackedExecutingToolCall,
   TrackedCancelledToolCall,
 } from './useReactToolScheduler.js';
-import { Config, EditorType, AuthType } from '@tcsenpai/ollama-code';
+import { Config, EditorType, AuthType } from '@johnko/ollama-code';
 import { Part, PartListUnion } from '@google/genai';
 import { UseHistoryManagerReturn } from './useHistoryManager.js';
 import {
@@ -47,7 +47,7 @@ const MockedUserPromptEvent = vi.hoisted(() =>
   vi.fn().mockImplementation(() => {}),
 );
 
-vi.mock('@tcsenpai/ollama-code', async (importOriginal) => {
+vi.mock('@johnko/ollama-code', async (importOriginal) => {
   const actualCoreModule = (await importOriginal()) as any;
   return {
     ...actualCoreModule,
@@ -1173,7 +1173,7 @@ describe('useGeminiStream', () => {
           mockAuthType,
           undefined,
           'gemini-2.5-pro',
-          'gemini-2.5-flash',
+          'qwen3:14b',
         );
       });
     });

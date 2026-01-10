@@ -14,7 +14,7 @@ import {
   SessionMetrics,
 } from './SessionContext.js';
 import { describe, it, expect, vi } from 'vitest';
-import { uiTelemetryService } from '@tcsenpai/ollama-code';
+import { uiTelemetryService } from '@johnko/ollama-code';
 
 /**
  * A test harness component that uses the hook and exposes the context value
