@@ -30,7 +30,7 @@
     "@opentelemetry/sdk-node": "^0.52.0",
     "@types/glob": "^8.1.0",
     "@types/html-to-text": "^9.0.4",
-    "ajv": "^8.17.1",
+    "ajv": "^7.0.0",
     "diff": "^7.0.0",
     "dotenv": "^17.2.3",
     "gaxios": "^7.1.1",
