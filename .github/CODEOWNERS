@@ -1,7 +1,7 @@
-# By default, require reviews from the release approvers for all files.
-* @google-gemini/gemini-cli-askmode-approvers
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#example-of-a-codeowners-file
+# This is a comment.
+# Each line is a file pattern followed by one or more owners.
 
-# The following files don't need reviews from the release approvers.
-# These patterns override the rule above.
-**/*.md
-/docs/
+# These owners will be the default owners for everything in
+# the repo.
+* @johnko

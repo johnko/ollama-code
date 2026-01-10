@@ -6,7 +6,7 @@ npm run build:packages
 # Pack CLI package
 cd packages/cli && npm pack && cd ../../
 
-# Pack Core package  
+# Pack Core package
 cd packages/core && npm pack && cd ../../
 
 # Move the tgz files to root directory using absolute paths
@@ -18,4 +18,4 @@ rm packages/cli/*.tgz
 rm packages/core/*.tgz
 
 echo "Packages created successfully:"
-ls -la *.tgz
+ls -la ./*.tgz
