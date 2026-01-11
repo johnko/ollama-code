@@ -7,5 +7,5 @@
     }
   },
   "image": "mcr.microsoft.com/devcontainers/typescript-node:24-trixie",
-  "postCreateCommand": "echo alias g=git >> ~/.bash_aliases"
+  "postCreateCommand": "npm install --global opencode-ai@1.1.12 @devcontainers/cli@0.80.3 ; echo alias g=git >> ~/.bash_aliases"
 }
