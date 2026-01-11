@@ -1,4 +1,3 @@
 {
   "image": "mcr.microsoft.com/devcontainers/typescript-node:24-trixie",
-  "postCreateCommand": "echo alias g=git >> ~/.bash_aliases"
 }
