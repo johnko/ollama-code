@@ -103,7 +103,7 @@ async function shouldUseCurrentUserInSandbox(): Promise<boolean> {
 function parseImageName(image: string): string {
   const [fullName, tag] = image.split(':');
   const nameArray = fullName.split('/');
-  const name = nameArray[nameArray.length-1] ?? 'unknown-image';
+  const name = nameArray[nameArray.length - 1] ?? 'unknown-image';
   return tag ? `${name}-${tag}` : name;
 }
 
