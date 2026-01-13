@@ -1,1 +1,4 @@
 .vscode/
+bundle/
+node_modules/
+packages/cli/src/generated/
