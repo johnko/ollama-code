@@ -1,5 +1,5 @@
 diff --git a/node_modules/@modelcontextprotocol/sdk/dist/cjs/validation/types.d.ts b/node_modules/@modelcontextprotocol/sdk/dist/cjs/validation/types.d.ts
-index 9fa9222..25097bd 100644
+index 9fa9222..68dd4ea 100644
 --- a/node_modules/@modelcontextprotocol/sdk/dist/cjs/validation/types.d.ts
 +++ b/node_modules/@modelcontextprotocol/sdk/dist/cjs/validation/types.d.ts
 @@ -1,4 +1,4 @@
