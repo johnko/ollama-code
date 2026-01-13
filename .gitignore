@@ -1,5 +1,5 @@
 .vscode/
 bundle/
 dist/
-node_modules
+node_modules/
 packages/cli/src/generated/
