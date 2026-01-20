@@ -52,7 +52,7 @@
     "@types/minimatch": "5.1.2",
     "@types/ws": "8.18.1",
     "typescript": "5.9.3",
-    "vitest": "3.2.4"
+    "vitest": "4.0.17"
   },
   "engines": {
     "node": ">=22"
